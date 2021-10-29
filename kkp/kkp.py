@@ -1,5 +1,6 @@
 a = [0]*4 
-import random
+from random import *
+from keyboard import *
 for i in range (4):
     ver = 0
     while (ver==0):
@@ -13,7 +14,7 @@ for i in range (4):
         print("Sa valisid käärid.")
     if player == 3:
         print("Valisite paberi.")
-    comp = random.randint(1,3)
+    comp=randint(1,3)
     if comp == 1:
         print("Arvuti valis kivi.")
     if comp == 2:
@@ -143,3 +144,21 @@ if p==1:
         elif a==1 and z==2:
             print('Ты проиграл')
             c+=1
+elif p==2:
+    v1=['Камень','Ножницы','Бумага']
+    v2=['Камень','Ножницы','Бумага']
+    while True:
+        print('Играем? esc= выходим, enter= играем')
+        if read_key()=='esc':
+            break
+        elif read_key()=='enter':
+            p1=choice(v1)
+            print('Первый Бот: ',p1)
+            p2=choice(v2)
+            print('Второй Бот: ',p2)
+            if p1==p2:
+                print('Ничья')
+            elif p1==v1[0] and p2==v2[1] or p1==v1[2] and p2==v2[0] or p1==v1[1] and p2==v2[2]:
+                print('Выйграл 1')
+            else:
+                print('Выйграл 2')
